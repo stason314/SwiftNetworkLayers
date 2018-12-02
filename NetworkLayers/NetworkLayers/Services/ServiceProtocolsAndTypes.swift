@@ -1,5 +1,5 @@
 //
-//  Service.swift
+//  ServiceProtocolsAndTypes.swift
 //  NetworkLayers
 //
 //  Created by Стас Клюхин on 02/12/2018.
@@ -39,10 +39,5 @@ enum HTTPTask {
     case request
     case requestParameters(bodyParameters: Parameter?, urlParameters: Parameter?)
     case requestParametersAndHeaders(bodyParameters: Parameter?, urlParameters: Parameter?, headers: HTTPHeaders?)
-}
-
-
-class Endpoint: NSObject {
-
 }
 
