@@ -49,7 +49,7 @@ class Router<EndPoint: EndpointType>: NetworkRouter {
             case .requestParameters(let bodyParameters, let urlParameters):
                 try configureParams(bodyParameters: bodyParameters, urlParameters: urlParameters, urlRequest: &request)
             case .requestParametersAndHeaders(let bodyParameters, let urlParameters, let headers):
-                appendTo(request: &request, additionalHeaders: headers)
+                append(additionalHeaders: headers, request: &request)
                 try configureParams(bodyParameters: bodyParameters, urlParameters: urlParameters, urlRequest: &request)
             }
             return request
@@ -71,7 +71,7 @@ class Router<EndPoint: EndpointType>: NetworkRouter {
         }
     }
     
-    private func appendTo(request: inout URLRequest, additionalHeaders: HTTPHeaders?) {
+    private func append(additionalHeaders: HTTPHeaders?, request: inout URLRequest) {
         guard let headers = additionalHeaders else { return }
         headers.forEach({ request.setValue($0, forHTTPHeaderField: $1) })
     }
