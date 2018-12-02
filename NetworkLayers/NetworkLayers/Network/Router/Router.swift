@@ -24,13 +24,13 @@ class Router<EndPoint: EndpointType>: NetworkRouter {
         let session = URLSession.shared
         do {
             let request = try buildRequest(fromRoute: route)
-            session.dataTask(with: request) { (data, response, error) in
+            task = session.dataTask(with: request) { (data, response, error) in
                 completion(data, response, error)
             }
         } catch {
             completion(nil, nil, error)
         }
-        
+        task?.resume()
     }
     
     func cancel() {
