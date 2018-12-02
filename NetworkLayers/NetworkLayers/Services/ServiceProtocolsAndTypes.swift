@@ -45,6 +45,7 @@ enum HTTPTask {
 }
 
 protocol NetworkRouter {
-    func request(_ route: EndpointType, completion: @escaping NetworkRouterCompletion)
+    associatedtype EndPoint: EndpointType
+    func request(_ route: EndPoint, completion: @escaping NetworkRouterCompletion)
     func cancel()
 }

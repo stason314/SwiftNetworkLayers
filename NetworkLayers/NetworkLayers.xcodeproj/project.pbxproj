@@ -15,6 +15,7 @@
 		85FC686221B30542007CB2C2 /* ServiceProtocolsAndTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC686121B30542007CB2C2 /* ServiceProtocolsAndTypes.swift */; };
 		85FC686421B3A4C0007CB2C2 /* UrlParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC686321B3A4C0007CB2C2 /* UrlParameterEncoder.swift */; };
 		85FC686721B3AC25007CB2C2 /* JsonParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC686621B3AC25007CB2C2 /* JsonParameterEncoder.swift */; };
+		85FC686A21B3AFFA007CB2C2 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC686921B3AFFA007CB2C2 /* Router.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		85FC686121B30542007CB2C2 /* ServiceProtocolsAndTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocolsAndTypes.swift; sourceTree = "<group>"; };
 		85FC686321B3A4C0007CB2C2 /* UrlParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlParameterEncoder.swift; sourceTree = "<group>"; };
 		85FC686621B3AC25007CB2C2 /* JsonParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParameterEncoder.swift; sourceTree = "<group>"; };
+		85FC686921B3AFFA007CB2C2 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		85FC686021B30515007CB2C2 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				85FC686821B3AFC4007CB2C2 /* Router */,
 				85FC686521B3AC00007CB2C2 /* Encoders */,
 				85FC686121B30542007CB2C2 /* ServiceProtocolsAndTypes.swift */,
 			);
@@ -87,6 +90,14 @@
 				85FC686621B3AC25007CB2C2 /* JsonParameterEncoder.swift */,
 			);
 			path = Encoders;
+			sourceTree = "<group>";
+		};
+		85FC686821B3AFC4007CB2C2 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				85FC686921B3AFFA007CB2C2 /* Router.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +175,7 @@
 				8552E44721B2D6B700D28C6C /* ViewController.swift in Sources */,
 				85FC686721B3AC25007CB2C2 /* JsonParameterEncoder.swift in Sources */,
 				85FC686221B30542007CB2C2 /* ServiceProtocolsAndTypes.swift in Sources */,
+				85FC686A21B3AFFA007CB2C2 /* Router.swift in Sources */,
 				8552E44521B2D6B700D28C6C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
