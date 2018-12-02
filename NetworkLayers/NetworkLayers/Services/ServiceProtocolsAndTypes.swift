@@ -11,9 +11,12 @@ import UIKit
 typealias Parameter = [String: Any]
 typealias HTTPHeaders = [String: String]
 
+typealias NetworkRouterCompletion = (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void
+
 enum NetworkError: String, Error {
     case badUrl = "Bad url"
     case parametersNil = "Params nil"
+    case encodingFail = "Encoding failed"
 }
 
 enum HTTPMethod: String {
@@ -41,3 +44,7 @@ enum HTTPTask {
     case requestParametersAndHeaders(bodyParameters: Parameter?, urlParameters: Parameter?, headers: HTTPHeaders?)
 }
 
+protocol NetworkRouter {
+    func request(_ route: EndpointType, completion: @escaping NetworkRouterCompletion)
+    func cancel()
+}
