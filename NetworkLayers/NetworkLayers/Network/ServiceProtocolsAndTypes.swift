@@ -30,7 +30,7 @@ protocol EndpointType {
     var baseUrl: URL { get }
     var httpMethod: HTTPMethod { get }
     var path: String { get }
-    var headers: HTTPHeaders { get }
+    var headers: HTTPHeaders? { get }
     var httpTask: HTTPTask { get }
 }
 
