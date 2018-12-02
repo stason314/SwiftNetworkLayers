@@ -14,6 +14,7 @@
 		8552E44F21B2D6B800D28C6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8552E44D21B2D6B800D28C6C /* LaunchScreen.storyboard */; };
 		85FC686221B30542007CB2C2 /* ServiceProtocolsAndTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC686121B30542007CB2C2 /* ServiceProtocolsAndTypes.swift */; };
 		85FC686421B3A4C0007CB2C2 /* UrlParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC686321B3A4C0007CB2C2 /* UrlParameterEncoder.swift */; };
+		85FC686721B3AC25007CB2C2 /* JsonParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC686621B3AC25007CB2C2 /* JsonParameterEncoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		8552E45021B2D6B800D28C6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85FC686121B30542007CB2C2 /* ServiceProtocolsAndTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocolsAndTypes.swift; sourceTree = "<group>"; };
 		85FC686321B3A4C0007CB2C2 /* UrlParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlParameterEncoder.swift; sourceTree = "<group>"; };
+		85FC686621B3AC25007CB2C2 /* JsonParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParameterEncoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,10 +74,19 @@
 		85FC686021B30515007CB2C2 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				85FC686521B3AC00007CB2C2 /* Encoders */,
 				85FC686121B30542007CB2C2 /* ServiceProtocolsAndTypes.swift */,
-				85FC686321B3A4C0007CB2C2 /* UrlParameterEncoder.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		85FC686521B3AC00007CB2C2 /* Encoders */ = {
+			isa = PBXGroup;
+			children = (
+				85FC686321B3A4C0007CB2C2 /* UrlParameterEncoder.swift */,
+				85FC686621B3AC25007CB2C2 /* JsonParameterEncoder.swift */,
+			);
+			path = Encoders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +162,7 @@
 			files = (
 				85FC686421B3A4C0007CB2C2 /* UrlParameterEncoder.swift in Sources */,
 				8552E44721B2D6B700D28C6C /* ViewController.swift in Sources */,
+				85FC686721B3AC25007CB2C2 /* JsonParameterEncoder.swift in Sources */,
 				85FC686221B30542007CB2C2 /* ServiceProtocolsAndTypes.swift in Sources */,
 				8552E44521B2D6B700D28C6C /* AppDelegate.swift in Sources */,
 			);
