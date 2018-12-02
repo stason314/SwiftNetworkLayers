@@ -11,8 +11,6 @@ import UIKit
 typealias Parameters = [String: Any]
 typealias HTTPHeaders = [String: String]
 
-typealias NetworkRouterCompletion = (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void
-
 enum NetworkError: String, Error {
     case badUrl = "Bad url"
     case parametersNil = "Params nil"
