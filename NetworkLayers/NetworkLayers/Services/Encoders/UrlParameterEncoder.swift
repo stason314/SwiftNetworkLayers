@@ -9,7 +9,7 @@
 import UIKit
 
 class UrlParameterEncoder: ParameterEncoder {
-    static func encode(urlRequest: inout URLRequest, with parameters: Parameter) throws {
+    static func encode(urlRequest: inout URLRequest, with parameters: Parameters) throws {
         guard let url = urlRequest.url else { throw NetworkError.badUrl }
         if var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false), !parameters.isEmpty {
             

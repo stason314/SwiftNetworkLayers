@@ -9,7 +9,7 @@
 import UIKit
 
 class JsonParameterEncoder: ParameterEncoder {
-    static func encode(urlRequest: inout URLRequest, with parameters: Parameter) throws {
+    static func encode(urlRequest: inout URLRequest, with parameters: Parameters) throws {
         do {
             let json = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
             urlRequest.httpBody = json

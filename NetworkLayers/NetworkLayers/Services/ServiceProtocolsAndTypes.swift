@@ -8,7 +8,7 @@
 
 import UIKit
 
-typealias Parameter = [String: Any]
+typealias Parameters = [String: Any]
 typealias HTTPHeaders = [String: String]
 
 typealias NetworkRouterCompletion = (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void
@@ -35,13 +35,13 @@ protocol EndpointType {
 }
 
 protocol ParameterEncoder {
-    static func encode(urlRequest: inout URLRequest, with parameters: Parameter) throws
+    static func encode(urlRequest: inout URLRequest, with parameters: Parameters) throws
 }
 
 enum HTTPTask {
     case request
-    case requestParameters(bodyParameters: Parameter?, urlParameters: Parameter?)
-    case requestParametersAndHeaders(bodyParameters: Parameter?, urlParameters: Parameter?, headers: HTTPHeaders?)
+    case requestParameters(bodyParameters: Parameters?, urlParameters: Parameters?)
+    case requestParametersAndHeaders(bodyParameters: Parameters?, urlParameters: Parameters?, headers: HTTPHeaders?)
 }
 
 protocol NetworkRouter {
