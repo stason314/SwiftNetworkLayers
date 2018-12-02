@@ -41,9 +41,3 @@ enum HTTPTask {
     case requestParameters(bodyParameters: Parameters?, urlParameters: Parameters?)
     case requestParametersAndHeaders(bodyParameters: Parameters?, urlParameters: Parameters?, headers: HTTPHeaders?)
 }
-
-protocol NetworkRouter {
-    associatedtype EndPoint: EndpointType
-    func request(_ route: EndPoint, completion: @escaping NetworkRouterCompletion)
-    func cancel()
-}

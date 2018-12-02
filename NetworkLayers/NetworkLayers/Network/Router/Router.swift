@@ -8,11 +8,17 @@
 
 import UIKit
 
+typealias NetworkRouterCompletion = (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void
+
+protocol NetworkRouter {
+    associatedtype EndPoint: EndpointType
+    func request(_ route: EndPoint, completion: @escaping NetworkRouterCompletion)
+    func cancel()
+}
+
 class Router<EndPoint: EndpointType>: NetworkRouter {
     
     private var task: URLSessionTask?
-    
-    typealias NetworkRouterCompletion = (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void
     
     func request(_ route: EndPoint, completion: @escaping NetworkRouterCompletion) {
         let session = URLSession.shared
