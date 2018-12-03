@@ -15,8 +15,15 @@ class MoviesService {
     typealias MoviesCompletionHandler = (_ movies: [Movie]?, _ error: Error?) -> Void
     
     func getMovies(byPage page: Int, completion: @escaping MoviesCompletionHandler) {
-        router.request(.upcoming(page: page)) { (data, response, error) in
-            
+        router.request(.upcoming(page: page), completion: { (data) in
+            do {
+                let apiResponse = try JSONDecoder().decode(MoviesApiResponse.self, from: data)
+                completion(apiResponse.movies, nil)
+            } catch {
+                completion(nil, error)
+            }
+        }) { (error) in
+            completion(nil, error)
         }
     }
 }
