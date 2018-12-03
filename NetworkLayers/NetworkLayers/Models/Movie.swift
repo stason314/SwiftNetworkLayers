@@ -33,7 +33,7 @@ extension MoviesApiResponse: Decodable {
 }
 
 struct Movie {
-    let id: String
+    let id: Int
     let voteCount: Int
     let voteAverage: Double
     let haveVideo: Bool
@@ -55,7 +55,7 @@ extension Movie: Decodable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: MovieCodingKeys.self)
         
-        id = try container.decode(String.self, forKey: .id)
+        id = try container.decode(Int.self, forKey: .id)
         voteCount = try container.decode(Int.self, forKey: .voteCount)
         voteAverage = try container.decode(Double.self, forKey: .voteAverage)
         haveVideo = try container.decode(Bool.self, forKey: .video)
