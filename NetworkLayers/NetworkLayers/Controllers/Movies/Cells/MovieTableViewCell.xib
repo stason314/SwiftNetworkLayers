@@ -18,8 +18,25 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="82.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNe-JK-AW0">
+                        <rect key="frame" x="5" y="5" width="310" height="72.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="vNe-JK-AW0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="EgR-Ud-qYt"/>
+                    <constraint firstItem="vNe-JK-AW0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="PVf-a5-z6l"/>
+                    <constraint firstAttribute="trailing" secondItem="vNe-JK-AW0" secondAttribute="trailing" constant="5" id="Tbm-UE-cyP"/>
+                    <constraint firstAttribute="bottom" secondItem="vNe-JK-AW0" secondAttribute="bottom" constant="5" id="xnb-ht-xtH"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="movieTitleLabel" destination="vNe-JK-AW0" id="e9G-aN-3le"/>
+            </connections>
             <point key="canvasLocation" x="136" y="104.7976011994003"/>
         </tableViewCell>
     </objects>
