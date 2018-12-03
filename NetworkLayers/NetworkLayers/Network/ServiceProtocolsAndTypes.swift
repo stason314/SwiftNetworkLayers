@@ -11,12 +11,6 @@ import UIKit
 typealias Parameters = [String: Any]
 typealias HTTPHeaders = [String: String]
 
-enum NetworkError: String, Error {
-    case badUrl = "Bad url"
-    case parametersNil = "Params nil"
-    case encodingFail = "Encoding failed"
-}
-
 enum HTTPMethod: String {
     case GET = "GET"
     case POST = "POST"

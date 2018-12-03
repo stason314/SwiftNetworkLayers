@@ -8,11 +8,19 @@
 
 import UIKit
 
-typealias NetworkRouterCompletion = (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void
+typealias NetworkRouterCompletion = (_ response: Data) -> Void
+typealias NetworkFailureHandler = (_ error: Error?) -> Void
+
+enum NetworkError: String, Error {
+    case badUrl = "Bad url"
+    case parametersNil = "Params nil"
+    case encodingFail = "Encoding failed"
+    case noData = "No data from server"
+}
 
 protocol NetworkRouter {
     associatedtype EndPoint: EndpointType
-    func request(_ route: EndPoint, completion: @escaping NetworkRouterCompletion)
+    func request(_ route: EndPoint, completion: @escaping NetworkRouterCompletion, failure: @escaping NetworkFailureHandler)
     func cancel()
 }
 
@@ -20,15 +28,23 @@ class Router<EndPoint: EndpointType>: NetworkRouter {
     
     private var task: URLSessionTask?
     
-    func request(_ route: EndPoint, completion: @escaping NetworkRouterCompletion) {
+    func request(_ route: EndPoint, completion: @escaping NetworkRouterCompletion, failure: @escaping NetworkFailureHandler) {
         let session = URLSession.shared
         do {
             let request = try buildRequest(fromRoute: route)
             task = session.dataTask(with: request) { (data, response, error) in
-                completion(data, response, error)
+                guard let data = data else {
+                    failure(NetworkError.noData)
+                    return
+                }
+                if let error = error {
+                    failure(error)
+                    return
+                }
+                completion(data)
             }
         } catch {
-            completion(nil, nil, error)
+            failure(error)
         }
         task?.resume()
     }
