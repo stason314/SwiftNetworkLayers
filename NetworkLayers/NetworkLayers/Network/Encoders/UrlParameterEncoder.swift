@@ -20,8 +20,8 @@ class UrlParameterEncoder: ParameterEncoder {
             }
             
             urlComponents.queryItems = encodedQueryItems
+            urlRequest.url = urlComponents.url
         }
-        
-        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
     }
 }
