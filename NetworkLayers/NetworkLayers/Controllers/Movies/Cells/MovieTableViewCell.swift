@@ -9,10 +9,17 @@
 import UIKit
 
 class MovieTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    
+    @IBOutlet private weak var movieTitleLabel: UILabel!
+    
+    var movie: Movie? {
+        didSet {
+            refreshUI()
+        }
     }
     
+    private func refreshUI() {
+        guard let movie = movie else { return }
+        movieTitleLabel.text = movie.title
+    }
 }
