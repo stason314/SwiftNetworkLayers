@@ -14,6 +14,12 @@ class MoviesViewController: UIViewController {
     
     private var movies: [Movie]?
     
+    private let refreshControl: UIRefreshControl = {
+        let control = UIRefreshControl(frame: .zero)
+        control.addTarget(self, action: #selector(loadMovies), for: .valueChanged)
+        return control
+    }()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadMovies()
@@ -28,14 +34,15 @@ class MoviesViewController: UIViewController {
     private func setup() {
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.addSubview(refreshControl)
     }
     
     private func registerCells() {
         tableView.register(UINib(nibName: MovieTableViewCell.nibName(), bundle: nil), forCellReuseIdentifier: MovieTableViewCell.identifier())
     }
     
-    private func loadMovies() {
-        ActivityLoader.addLoader(to: view)
+    @IBAction private func loadMovies() {
+        ActivityLoader.addLoader()
         MoviesService.shared.getMovies(byPage: 1) { [weak self] (movies, error) in
             guard let `self` = self else { return }
             DispatchQueue.main.async {
@@ -46,6 +53,7 @@ class MoviesViewController: UIViewController {
                     self.tableView.reloadData()
                 }
                 ActivityLoader.removeLoader()
+                self.refreshControl.endRefreshing()
             }
 
         }
