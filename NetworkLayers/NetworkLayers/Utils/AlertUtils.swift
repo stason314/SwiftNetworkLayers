@@ -11,9 +11,7 @@ import UIKit
 final class AlertUtils {
 
     static func showErrorAlert(withMessage message: String) {
-        guard let app = UIApplication.shared.delegate, let window = app.window else { return }
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        window?.rootViewController?.present(alert, animated: true, completion: nil)
+        showAlert(withTitle: "Error", message: message)
     }
     
     static func showAlert(withTitle title: String, message: String) {

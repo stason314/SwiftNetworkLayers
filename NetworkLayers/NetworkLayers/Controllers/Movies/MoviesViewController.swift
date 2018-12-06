@@ -31,7 +31,7 @@ class MoviesViewController: UIViewController {
     }
     
     private func registerCells() {
-        tableView.register(UINib(nibName: MovieTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: MovieTableViewCell.identifier)
+        tableView.register(UINib(nibName: MovieTableViewCell.nibName(), bundle: nil), forCellReuseIdentifier: MovieTableViewCell.identifier())
     }
     
     private func loadMovies() {
@@ -63,7 +63,7 @@ extension MoviesViewController: UITableViewDataSource {
     }
     
     private func dequeueMovieTableViewCell(for indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.identifier) as? MovieTableViewCell else { fatalError() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.identifier()) as? MovieTableViewCell else { fatalError() }
         if let movies = movies {
             cell.movie = movies[indexPath.row]
         }
