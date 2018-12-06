@@ -9,11 +9,11 @@
 import UIKit
 
 extension UITableViewCell {
-    static var nibName: String  {
+    class func nibName() -> String  {
         return String(describing: self)
     }
     
-    static var identifier: String {
+    class func identifier() -> String {
         return String(describing: self)
     }
 }
